@@ -34,23 +34,46 @@ const Review = ({ comment }: ReviewProps) => {
 
 function App() {
   const [reviews] = useState(initData);
+  const [formData, setFormData] = useState({ email: "", review: "" });
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
 
   return (
     <div className="comment-box">
       <h2>Leave comments</h2>
-      <form className="form-box">
-        <input type="email" name="email" placeholder="Email" />
+      <form className="form-box" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+          value={formData.email}
+        />
         <textarea
-          id=""
           rows={4}
-          name="comment"
+          name="review"
           placeholder="Add a comment..."
+          onChange={handleChange}
+          value={formData.review}
         />
         <button className="submit-button">Comment</button>
       </form>
       <ul className="comment-list">
         {reviews &&
-          reviews.map((review) => <Review key={review.id} comment={review} />)}
+          reviews.map((review) => {
+            return <Review key={review.id} comment={review} />;
+          })}
       </ul>
     </div>
   );
