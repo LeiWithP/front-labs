@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const initData = [
+  { id: 1, email: "mario@mail.com", review: "Lorem ipsum mario" },
+  { id: 2, email: "karla@mail.com", review: "Lorem ipsum karla" },
+  { id: 4, email: "oracio@mail.com", review: "Lorem ipsum oracio" },
+  { id: 5, email: "luis@mail.com", review: "Lorem ipsum luis" },
+  { id: 7, email: "miriam@mail.com", review: "Lorem ipsum miriam" },
+  { id: 8, email: "jesus@mail.com", review: "Lorem ipsum jesus" },
+  { id: 9, email: "august@mail.com", review: "Lorem ipsum august" },
+  { id: 10, email: "molinete@mail.com", review: "Lorem ipsum molinete" },
+  { id: 11, email: "alice@mail.com", review: "Lorem ipsum alice" },
+];
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface Review {
+  id?: number;
+  email: string;
+  review: string;
 }
 
-export default App
+interface ReviewProps {
+  comment: Review;
+}
+
+const Review = ({ comment }: ReviewProps) => {
+  return (
+    <div>
+      <h4>{comment.email}</h4>
+      <h4>{comment.review}</h4>
+    </div>
+  );
+};
+
+function App() {
+  const [reviews] = useState(initData);
+
+  return (
+    <div className="comment-box">
+      <h2>Leave comments</h2>
+      <form className="form-box">
+        <input type="email" name="email" placeholder="Email" />
+        <textarea
+          id=""
+          rows={4}
+          name="comment"
+          placeholder="Add a comment..."
+        />
+        <button className="submit-button">Comment</button>
+      </form>
+      <ul className="comment-list">
+        {reviews &&
+          reviews.map((review) => <Review key={review.id} comment={review} />)}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
