@@ -23,21 +23,3 @@ h2 {
   background-color: lightseagreen;
   overflow: hidden;
 }
-
-.form-box {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.submit-button {
-  align-self: flex-end;
-  font-size: 10px;
-}
-
-.comment-list {
-  width: 100%;
-  overflow-y: scroll;
-  margin-right: 40px;
-}

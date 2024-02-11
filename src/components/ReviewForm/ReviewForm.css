@@ -1,0 +1,11 @@
+.form-box {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.submit-button {
+  align-self: flex-end;
+  font-size: 10px;
+}

@@ -1,0 +1,5 @@
+.comment-list {
+  width: 100%;
+  overflow-y: scroll;
+  margin-right: 40px;
+}
