@@ -22,7 +22,8 @@ const ReviewForm = () => {
         ?.createReview({ email: formData.email, review: formData.review })
         .then(() => {
           setFormData({ email: "", review: "" });
-        });
+        })
+        .catch((error) => console.error(error));
     } else {
       alert("Invalid comment format");
     }
