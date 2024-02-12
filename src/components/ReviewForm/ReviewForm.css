@@ -5,7 +5,13 @@
   gap: 10px;
 }
 
+.input-box {
+  border-radius: 4px;
+  padding: 4px;
+  resize: none;
+}
+
 .submit-button {
   align-self: flex-end;
-  font-size: 10px;
+  font-size: 12px;
 }

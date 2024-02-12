@@ -1,3 +1,4 @@
+import "./Review.css";
 import { ReviewShape } from "../../types";
 
 interface ReviewProps {
@@ -6,9 +7,17 @@ interface ReviewProps {
 
 const Review = ({ comment }: ReviewProps) => {
   return (
-    <div>
-      <h4>{comment.email}</h4>
-      <h4>{comment.review}</h4>
+    <div className="review-box">
+      <p className="email">{comment.email}</p>
+      <p className="review">{comment.review}</p>
+      <span className="options-tab">
+        <a href="#">
+          Edit
+        </a>
+        <a href="#">
+          Delete
+        </a>
+      </span>
     </div>
   );
 };

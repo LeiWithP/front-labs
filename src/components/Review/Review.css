@@ -1,0 +1,25 @@
+p {
+  margin: 0;
+}
+
+.review-box {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.email {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.review {
+  font-size: 14px;
+}
+
+.options-tab {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+

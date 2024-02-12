@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="comment-box">
-      <h2>Leave comments</h2>
+      <h3>Leave comments</h3>
       <ReviewForm />
       <ReviewsList reviews={reviews} />
     </div>

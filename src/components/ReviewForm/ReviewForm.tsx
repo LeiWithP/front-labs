@@ -31,6 +31,7 @@ const ReviewForm = () => {
         placeholder="Email"
         onChange={handleChange}
         value={formData.email}
+        className="input-box"
       />
       <textarea
         rows={4}
@@ -38,6 +39,7 @@ const ReviewForm = () => {
         placeholder="Add a comment..."
         onChange={handleChange}
         value={formData.review}
+        className="input-box"
       />
       <button className="submit-button">Comment</button>
     </form>
