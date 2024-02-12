@@ -11,12 +11,8 @@ const Review = ({ comment }: ReviewProps) => {
       <p className="email">{comment.email}</p>
       <p className="review">{comment.review}</p>
       <span className="options-tab">
-        <a href="#">
-          Edit
-        </a>
-        <a href="#">
-          Delete
-        </a>
+        <a href="#">Edit</a>
+        <a href="#">Delete</a>
       </span>
     </div>
   );
