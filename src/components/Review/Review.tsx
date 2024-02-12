@@ -3,17 +3,18 @@ import { ReviewShape } from "../../types";
 
 interface ReviewProps {
   reviewData: ReviewShape;
-  // deleteReview: (id: number) => void;
+  onDelete: (id: number) => void;
+  // onUpdate: (id: number) => void;
 }
 
-const Review = ({ reviewData }: ReviewProps) => {
+const Review = ({ reviewData, onDelete }: ReviewProps) => {
   const handleEdit = () => {
     alert("Edit");
   };
 
   const handleDelete = () => {
     if (reviewData.id) {
-      // deleteReview(reviewData.id);
+      onDelete(reviewData.id);
     }
   };
 

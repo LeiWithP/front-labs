@@ -5,8 +5,8 @@ import { useReviews } from "../hooks/useReviews";
 interface ReviewsContextType {
   reviews: Array<ReviewShape>;
   createReview: (newReview: ReviewShape) => Promise<unknown>;
-  deleteReview: (id: number) => void;
-  updateReview: (id: number, newReview: ReviewShape) => void;
+  deleteReview: (id: number) => Promise<unknown>;
+  updateReview: (id: number, newReview: ReviewShape) => Promise<unknown>;
 }
 
 export const ReviewsContext = createContext<ReviewsContextType | null>(null);
