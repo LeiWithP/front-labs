@@ -1,6 +1,9 @@
 .comment-list {
+  display: flex;
   width: 100%;
   overflow-y: scroll;
   margin-right: 40px;
   flex-grow: 1;
+  flex-direction: column;
+  gap: 16px;
 }

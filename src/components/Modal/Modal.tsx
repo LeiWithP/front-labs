@@ -20,10 +20,10 @@ const Modal: React.FC<ModalProps> = ({
     <div className="modal-overlay">
       <div className="modal">
         <div className="modal-content">{children}</div>
-        <button className="accept-button" onClick={onAccept}>
+        <button onClick={onAccept}>
           Accept
         </button>
-        <button className="cancel-button" onClick={onCancel}>
+        <button onClick={onCancel}>
           Cancel
         </button>
       </div>

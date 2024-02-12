@@ -1,13 +1,7 @@
 import "./ReviewForm.css";
 import { useContext, useState } from "react";
 import { ReviewsContext } from "../../providers/ReviewsProvider";
-// import { ReviewShape } from "../../types";
 
-// interface ReviewFormProps {
-//   createReview: (newReview: ReviewShape) => void;
-// }
-
-// const ReviewForm = ({ createReview }: ReviewFormProps) => {
 const ReviewForm = () => {
   const [formData, setFormData] = useState({ email: "", review: "" });
   const reviewsContext = useContext(ReviewsContext);

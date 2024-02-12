@@ -4,12 +4,12 @@ import { ReviewShape } from "../../types";
 interface ReviewProps {
   reviewData: ReviewShape;
   onDelete: (id: number) => void;
-  // onUpdate: (id: number) => void;
+  onUpdate: (editedReview: ReviewShape) => void;
 }
 
-const Review = ({ reviewData, onDelete }: ReviewProps) => {
+const Review = ({ reviewData, onDelete, onUpdate }: ReviewProps) => {
   const handleEdit = () => {
-    alert("Edit");
+    onUpdate(reviewData);
   };
 
   const handleDelete = () => {

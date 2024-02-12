@@ -15,6 +15,7 @@ p {
 
 .review {
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 .options-tab {

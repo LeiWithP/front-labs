@@ -22,15 +22,20 @@ export const useReviews = () => {
     }
   };
 
-  const updateReview = async (id: number) => {
+  const updateReview = async (newReview: ReviewShape) => {
     try {
-      await fetch(`${REVIEWS_URL}/${id}`, {
+      const response = await fetch(`${REVIEWS_URL}/${newReview?.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          email: newReview.email,
+          review: newReview.review,
+        }),
       });
-      return setUpdateList(true);
+      setUpdateList(true);
+      return response;
     } catch (error) {
       return error;
     }
