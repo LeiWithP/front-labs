@@ -7,8 +7,6 @@ Frontend project made with React and typescript of a Web App to manage reviews
 - **React**: Utilizes the React library for building user interfaces.
 - **TypeScript**: Adds static typing to JavaScript to enhance development experience and catch errors early.
 - **Prettier**: Formats code automatically to maintain consistent coding styles.
-- **React Router**: Handles routing within the React application.
-- **CSS Modules**: Enables modular CSS styling for React components.
 
 ## Getting Started
 
