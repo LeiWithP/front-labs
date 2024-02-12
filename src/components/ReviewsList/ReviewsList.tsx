@@ -1,17 +1,22 @@
 import "./ReviewsList.css";
 import Review from "../Review/Review";
-import { ReviewShape } from "../../types";
+import { useContext } from "react";
+import { ReviewsContext } from "../../providers/ReviewsProvider";
+// import { ReviewShape } from "../../types";
 
-interface ReviewsListProps {
-  reviews: Array<ReviewShape>;
-}
+// interface ReviewsListProps {
+//   reviews: Array<ReviewShape>;
+// }
 
-const ReviewsList = ({ reviews }: ReviewsListProps) => {
+// const ReviewsList = ({ reviews }: ReviewsListProps) => {
+const ReviewsList = () => {
+  const reviewsContext = useContext(ReviewsContext);
+
   return (
     <ul className="comment-list">
-      {reviews &&
-        reviews.map((review) => {
-          return <Review key={review.id} comment={review} />;
+      {reviewsContext &&
+        reviewsContext.reviews.map((review) => {
+          return <Review key={review.id} reviewData={review} />;
         })}
     </ul>
   );

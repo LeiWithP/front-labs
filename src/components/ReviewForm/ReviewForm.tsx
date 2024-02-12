@@ -1,8 +1,16 @@
 import "./ReviewForm.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ReviewsContext } from "../../providers/ReviewsProvider";
+// import { ReviewShape } from "../../types";
 
+// interface ReviewFormProps {
+//   createReview: (newReview: ReviewShape) => void;
+// }
+
+// const ReviewForm = ({ createReview }: ReviewFormProps) => {
 const ReviewForm = () => {
   const [formData, setFormData] = useState({ email: "", review: "" });
+  const reviewsContext = useContext(ReviewsContext);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -11,13 +19,12 @@ const ReviewForm = () => {
       ...formData,
       [event.target.name]: event.target.value,
     });
-    // alert("Invalid comment format")
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formData.email.length > 0 && formData.review.length) {
-      alert("OK");
+      reviewsContext?.createReview({ email: formData.email, review: formData.review });
     } else {
       alert("Invalid comment format");
     }
