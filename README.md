@@ -1,30 +1,71 @@
-# React + TypeScript + Vite
+# Front Labs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend project made with React and typescript of a Web App to manage reviews
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Utilizes the React library for building user interfaces.
+- **TypeScript**: Adds static typing to JavaScript to enhance development experience and catch errors early.
+- **Prettier**: Formats code automatically to maintain consistent coding styles.
+- **React Router**: Handles routing within the React application.
+- **CSS Modules**: Enables modular CSS styling for React components.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   git clone https://github.com/LeiWithP/front-labs.git
+   ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+2. Navigate to the project directory:
+
+   ```bash
+   cd front-labs
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be running at [http://localhost:5173](http://localhost:5173).
+
+## Important Details
+
+1. The project is setup to run in the local port 5173, in case of that port not being available the server will search for an available one. Check the returned port before opening it
+
+2. The backend of the project is hardcoded in the file [src/hooks/useReviews.tsx] and can be edited just by changing the variable REVIEWS_URL at the top of the file. Check that the backend project is running in the same location as that variable
+
+## Folder Structure
+
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+front-labs/
+  ├── public/              # Static assets and HTML template
+  ├── src/                 # Application source code
+  │   ├── components/      # Reusable React components
+  │   ├── hooks/           # Reusable React custom hooks
+  │   ├── providers/       # Context Providers
+  │   ├── App.css          # Main application styles
+  │   ├── App.tsx          # Main application component  
+  │   ├── index.css        # Styles for the entry point
+  │   ├── main.tsx         # Entry point of the application  
+  │   ├── types.d.ts       # Main TypeScript interface structures
+  │   ├── vite-env.d.ts    # TypeScript declaration file for Vite
+  ├── .eslintrc.cjs        # ESLint configuration
+  ├── .gitignore           # Specifies intentionally untracked files to ignore
+  ├── index.html           # Main HTML element
+  ├── package-lock.json    # Dependency lock file
+  ├── package.json         # Project dependencies and scripts
+  ├── README.md            # Project documentation
+  ├── tsconfig.json        # TypeScript configuration
+  ├── tsconfig.node.json   # TypeScript configuration for Node.js
+  └── vite.config.ts       # Vite configuration
+```
