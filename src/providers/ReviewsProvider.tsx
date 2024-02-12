@@ -4,7 +4,9 @@ import { useReviews } from "../hooks/useReviews";
 
 interface ReviewsContextType {
   reviews: Array<ReviewShape>;
-  createReview: (newReview: ReviewShape) => void;
+  createReview: (newReview: ReviewShape) => Promise<unknown>;
+  deleteReview: (id: number) => void;
+  updateReview: (id: number, newReview: ReviewShape) => void;
 }
 
 export const ReviewsContext = createContext<ReviewsContextType | null>(null);
@@ -18,10 +20,17 @@ export const ReviewsContext = createContext<ReviewsContextType | null>(null);
 // };
 
 export const ReviewsProvider = ({ children }: React.PropsWithChildren) => {
-  const { reviews, createReview }: ReviewsContextType = useReviews();
+  const {
+    reviews,
+    createReview,
+    deleteReview,
+    updateReview,
+  }: ReviewsContextType = useReviews();
 
   return (
-    <ReviewsContext.Provider value={{ reviews, createReview }}>
+    <ReviewsContext.Provider
+      value={{ reviews, createReview, deleteReview, updateReview }}
+    >
       {children}
     </ReviewsContext.Provider>
   );

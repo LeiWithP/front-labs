@@ -24,7 +24,11 @@ const ReviewForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formData.email.length > 0 && formData.review.length) {
-      reviewsContext?.createReview({ email: formData.email, review: formData.review });
+      reviewsContext
+        ?.createReview({ email: formData.email, review: formData.review })
+        .then(() => {
+          setFormData({ email: "", review: "" });
+        });
     } else {
       alert("Invalid comment format");
     }

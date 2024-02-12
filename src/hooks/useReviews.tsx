@@ -19,20 +19,34 @@ export const useReviews = () => {
     console.log(id);
   };
 
-  const createReview = (newReview: ReviewShape) => {
-    fetch(REVIEWS_URL, {
-      method: "POST",
+  const updateReview = (id: number) => {
+    fetch(`${REVIEWS_URL}/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: newReview.email,
-        review: newReview.review,
-      }),
     })
       .then(() => setUpdateList(true))
       .catch((error) => console.error(error));
-    console.log(newReview);
+    console.log(id);
+  };
+
+  const createReview = async (newReview: ReviewShape) => {
+    try {
+      await fetch(REVIEWS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: newReview.email,
+          review: newReview.review,
+        }),
+      });
+      return setUpdateList(true);
+    } catch (error) {
+      return error;
+    }
   };
 
   useEffect(() => {
@@ -46,5 +60,5 @@ export const useReviews = () => {
     }
   }, [updateList]);
 
-  return { reviews, createReview, deleteReview };
+  return { reviews, createReview, deleteReview, updateReview };
 };
