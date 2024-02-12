@@ -7,33 +7,38 @@ export const useReviews = () => {
   const [reviews, setReviews] = useState<Array<ReviewShape>>([]);
   const [updateList, setUpdateList] = useState(true);
 
-  const deleteReview = (id: number) => {
-    fetch(`${REVIEWS_URL}/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(() => setUpdateList(true))
-      .catch((error) => console.error(error));
-    console.log(id);
+  const deleteReview = async (id: number) => {
+    try {
+      const response = await fetch(`${REVIEWS_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setUpdateList(true);
+      return response;
+    } catch (error) {
+      return console.error(error);
+    }
   };
 
-  const updateReview = (id: number) => {
-    fetch(`${REVIEWS_URL}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(() => setUpdateList(true))
-      .catch((error) => console.error(error));
-    console.log(id);
+  const updateReview = async (id: number) => {
+    try {
+      await fetch(`${REVIEWS_URL}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return setUpdateList(true);
+    } catch (error) {
+      return error;
+    }
   };
 
   const createReview = async (newReview: ReviewShape) => {
     try {
-      await fetch(REVIEWS_URL, {
+      const response = await fetch(REVIEWS_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +48,8 @@ export const useReviews = () => {
           review: newReview.review,
         }),
       });
-      return setUpdateList(true);
+      setUpdateList(true);
+      return response;
     } catch (error) {
       return error;
     }
