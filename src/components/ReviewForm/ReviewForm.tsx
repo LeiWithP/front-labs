@@ -11,10 +11,16 @@ const ReviewForm = () => {
       ...formData,
       [event.target.name]: event.target.value,
     });
+    // alert("Invalid comment format")
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (formData.email.length > 0 && formData.review.length) {
+      alert("OK");
+    } else {
+      alert("Invalid comment format");
+    }
   };
 
   return (
